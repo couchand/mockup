@@ -20,13 +20,13 @@ public with sharing class ScratchController
 	{
 		currentComponents = new List<String>();
 	}
-/*
 
 	public Component.Apex.OutputPanel getDynamicComponent()
 	{
 		return ComponentFactory.createComponent( selectedComponentType );
 	}
 
+/*
 	public Component.Apex.OutputPanel getPageContents()
 	{
 		Component.Apex.OutputPanel output = new Component.Apex.OutputPanel();
