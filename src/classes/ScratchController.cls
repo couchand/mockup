@@ -24,11 +24,22 @@ public with sharing class ScratchController
 	{
 		Component.Apex.OutputPanel dynamicComponent = new Component.Apex.OutputPanel();
 
-		Component.Apex.OutputText text = new Component.Apex.OutputText();
+		if( 'inputText' == selectedComponentType )
+		{
+			Component.Apex.InputText text = new Component.Apex.InputText();
 
-		text.value = selectedComponentType;
+			text.value = selectedComponentType;
 
-		dynamicComponent.childComponents.add( text );
+			dynamicComponent.childComponents.add( text );
+		}
+		else
+		{
+			Component.Apex.OutputText text = new Component.Apex.OutputText();
+
+			text.value = selectedComponentType;
+
+			dynamicComponent.childComponents.add( text );
+		}
 
 		return dynamicComponent;
 	}
