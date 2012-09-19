@@ -9,5 +9,6 @@
 		<apex:repeat value="{!currentComponents}" var="comp">
 			{!comp}
 		</apex:repeat>
+		<apex:dynamicComponent id="pageContents" componentValue="{!pageContents}" />
 	</apex:form>
 </apex:page>

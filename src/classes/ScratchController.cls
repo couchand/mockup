@@ -26,7 +26,6 @@ public with sharing class ScratchController
 		return ComponentFactory.createComponent( selectedComponentType );
 	}
 
-/*
 	public Component.Apex.OutputPanel getPageContents()
 	{
 		Component.Apex.OutputPanel output = new Component.Apex.OutputPanel();
@@ -38,7 +37,7 @@ public with sharing class ScratchController
 
 		return output;
 	}
-*/
+
 	public void addComponent()
 	{
 		currentComponents.add( selectedComponentType );
