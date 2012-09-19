@@ -16,7 +16,7 @@ public with sharing class ComponentFactory
 
 	public static Component.Apex.OutputPanel createComponent( String componentType )
 	{
-		Component.Apex.OutputPanel dynamicComponent = new Component.Apex.OutputPanel();
+		Component.Apex.OutputPanel dynamicComponent = new Component.Apex.OutputPanel( styleClass = 'dynamicComponent' );
 
 		if( 'inputText' == componentType )
 		{
