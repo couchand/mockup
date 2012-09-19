@@ -1,9 +1,9 @@
 <apex:page controller="ScratchController">
-	<apex:form >
-		<apex:actionFunction name="afRefresh" rerender="dynamicComponent" />
-		<apex:selectList value="{!selectedComponentType}" onchange="afRefresh()">
+	<apex:form id="form">
+		<apex:selectList value="{!selectedComponentType}" size="1">
 			<apex:selectOptions value="{!componentTypes}" />
 		</apex:selectList>
+		<apex:commandButton rerender="form" value="Select" />
 		<apex:dynamicComponent id="dynamicComponent" componentValue="{!dynamicComponent}" />
 	</apex:form>
 </apex:page>
