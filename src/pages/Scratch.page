@@ -6,8 +6,8 @@
 		<apex:commandButton rerender="form" value="Preview" />
 		<apex:commandButton rerender="form" value="Add" action="{!addComponent}" />
 		<apex:dynamicComponent id="dynamicComponent" componentValue="{!dynamicComponent}" />
-		<apex:repeat value="{!currentComponents}" var="component">
-			<apex:dynamicComponent componentValue="{!component}" />
+		<apex:repeat value="{!currentComponents}" var="comp">
+			{!comp}
 		</apex:repeat>
 	</apex:form>
 </apex:page>
