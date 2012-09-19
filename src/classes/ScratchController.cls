@@ -38,6 +38,18 @@ public with sharing class ScratchController
 		return output;
 	}
 
+	public Component.Apex.OutputPanel getExampleComponents()
+	{
+		Component.Apex.OutputPanel examples = new Component.Apex.OutputPanel();
+
+		for( String eachComponent : ComponentFactory.componentTypeNames )
+		{
+			examples.childComponents.add( ComponentFactory.createComponent( eachComponent ) );
+		}
+
+		return examples;
+	}
+
 	public void addComponent()
 	{
 		currentComponents.add( selectedComponentType );

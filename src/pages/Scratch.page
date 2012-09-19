@@ -1,14 +1,14 @@
-<apex:page controller="ScratchController">
+<apex:page controller="ScratchController" sidebar="false">
 	<apex:form id="form">
+	<div style="width:20%; display:inline-block;">
+		<apex:dynamicComponent componentValue="{!exampleComponents}" />
+	</div>
+	<div style="max-width:60%; display:inline-block;">
 		<apex:selectList value="{!selectedComponentType}" size="1">
 			<apex:selectOptions value="{!componentTypes}" />
 		</apex:selectList>
-		<apex:commandButton rerender="form" value="Preview" />
 		<apex:commandButton rerender="form" value="Add" action="{!addComponent}" />
-		<apex:dynamicComponent id="dynamicComponent" componentValue="{!dynamicComponent}" />
-		<apex:repeat value="{!currentComponents}" var="comp">
-			{!comp}
-		</apex:repeat>
 		<apex:dynamicComponent id="pageContents" componentValue="{!pageContents}" />
+	</div>
 	</apex:form>
 </apex:page>
