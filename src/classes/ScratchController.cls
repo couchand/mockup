@@ -14,8 +14,15 @@ public with sharing class ScratchController
 		return componentTypes;
 	}
 
+	public List<Component.Apex.OutputPanel> currentComponents { get; set; }
+
 	public Component.Apex.OutputPanel getDynamicComponent()
 	{
 		return ComponentFactory.createComponent( selectedComponentType );
+	}
+
+	public void addComponent()
+	{
+		currentComponents.add( ComponentFactory.createComponent( selectedComponentType ) );
 	}
 }

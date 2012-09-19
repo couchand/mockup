@@ -3,7 +3,11 @@
 		<apex:selectList value="{!selectedComponentType}" size="1">
 			<apex:selectOptions value="{!componentTypes}" />
 		</apex:selectList>
-		<apex:commandButton rerender="form" value="Select" />
+		<apex:commandButton rerender="form" value="Preview" />
+		<apex:commandButton rerender="form" value="Add" action="{!addComponent}" />
 		<apex:dynamicComponent id="dynamicComponent" componentValue="{!dynamicComponent}" />
+		<apex:repeat value="{!currentComponents}" var="component">
+			<apex:dynamicComponent componentValue="{!component}" />
+		</apex:repeat>
 	</apex:form>
 </apex:page>
