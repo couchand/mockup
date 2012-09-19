@@ -1,18 +1,12 @@
 public with sharing class ScratchController
 {
-	private final Set<String> componentTypeNames = new Set<String>
-	{
-		'inputText',
-		'outputText'
-	};
-
 	public String selectedComponentType { get; set; }
 
 	public List<SelectOption> getComponentTypes()
 	{
 		List<SelectOption> componentTypes = new List<SelectOption>();
 
-		for( String componentType : componentTypeNames )
+		for( String componentType : ComponentFactory.componentTypeNames )
 		{
 			componentTypes.add( new SelectOption( componentType, componentType ) );
 		}
@@ -22,25 +16,6 @@ public with sharing class ScratchController
 
 	public Component.Apex.OutputPanel getDynamicComponent()
 	{
-		Component.Apex.OutputPanel dynamicComponent = new Component.Apex.OutputPanel();
-
-		if( 'inputText' == selectedComponentType )
-		{
-			Component.Apex.InputText text = new Component.Apex.InputText();
-
-			text.value = selectedComponentType;
-
-			dynamicComponent.childComponents.add( text );
-		}
-		else
-		{
-			Component.Apex.OutputText text = new Component.Apex.OutputText();
-
-			text.value = selectedComponentType;
-
-			dynamicComponent.childComponents.add( text );
-		}
-
-		return dynamicComponent;
+		return ComponentFactory.createComponent( selectedComponentType );
 	}
 }
