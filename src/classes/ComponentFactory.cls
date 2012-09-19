@@ -3,7 +3,8 @@ public with sharing class ComponentFactory
 	static List<Dummy> dummyData = new List<Dummy>
 	{
 		new Dummy( 'Jim', 'Captain' ),
-		new Dummy( 'Dave', 'First Officer' )
+		new Dummy( 'Spock', 'First Officer' ),
+		new Dummy( 'Bones', 'Doctor' )
 	};
 
 	public static final Set<String> componentTypeNames = new Set<String>
