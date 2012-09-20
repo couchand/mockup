@@ -10,6 +10,7 @@ public with sharing class ComponentFactory
 	public static final String PAGE_BLOCK = 'pageBlock';
 	public static final String PAGE_BLOCK_SECTION = 'pageBlockSection';
 	public static final String COMMAND_BUTTON = 'commandButton';
+	public static final String TOOLBAR = 'toolbar';
 	public static final String INPUT_TEXT = 'inputText';
 	public static final String OUTPUT_TEXT = 'outputText';
 	public static final String DATA_TABLE = 'dataTable';
@@ -20,6 +21,7 @@ public with sharing class ComponentFactory
 		PAGE_BLOCK,
 		PAGE_BLOCK_SECTION,
 		COMMAND_BUTTON,
+		TOOLBAR,
 		INPUT_TEXT,
 		OUTPUT_TEXT,
 		DATA_TABLE,
@@ -51,6 +53,22 @@ public with sharing class ComponentFactory
 			Component.Apex.CommandButton button = new Component.Apex.CommandButton();
 			button.value = 'Click me';
 			dynamicComponent.childComponents.add( button );
+		}
+		else if( TOOLBAR == componentType )
+		{
+			Component.Apex.Toolbar bar = new Component.Apex.Toolbar();
+
+			bar.childComponents.add( new Component.Apex.OutputText( value = 'foo' ) );
+			bar.childComponents.add( new Component.Apex.OutputText( value = 'bar' ) );
+
+			Component.Apex.ToolbarGroup floatRight = new Component.Apex.ToolbarGroup();
+			floatRight.location = 'right';
+
+			floatRight.childComponents.add( new Component.Apex.CommandLink( value = 'search' ) );
+
+			bar.childComponents.add( floatRight );
+
+			dynamicComponent.childComponents.add( bar );
 		}
 		else if( INPUT_TEXT == componentType )
 		{
