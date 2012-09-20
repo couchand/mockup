@@ -32,7 +32,10 @@ public with sharing class ComponentFactory
 
 	public static Component.Apex.OutputPanel createComponent( String componentType )
 	{
-		Component.Apex.OutputPanel dynamicComponent = new Component.Apex.OutputPanel( styleClass = 'dynamicComponent' );
+		Component.Apex.OutputPanel dynamicComponent = new Component.Apex.OutputPanel
+		(
+			styleClass = 'dynamicComponent ' + componentType
+		);
 
 		if( PAGE_BLOCK == componentType )
 		{
