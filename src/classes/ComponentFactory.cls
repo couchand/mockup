@@ -10,6 +10,7 @@ public with sharing class ComponentFactory
 	public static final String PAGE_BLOCK = 'pageBlock';
 	public static final String PAGE_BLOCK_SECTION = 'pageBlockSection';
 	public static final String COMMAND_BUTTON = 'commandButton';
+	public static final String PANEL_BAR = 'panelBar';
 	public static final String TOOLBAR = 'toolbar';
 	public static final String INPUT_TEXT = 'inputText';
 	public static final String OUTPUT_TEXT = 'outputText';
@@ -22,6 +23,7 @@ public with sharing class ComponentFactory
 		PAGE_BLOCK_SECTION,
 		COMMAND_BUTTON,
 		TOOLBAR,
+		PANEL_BAR,
 		INPUT_TEXT,
 		OUTPUT_TEXT,
 		DATA_TABLE,
@@ -53,6 +55,22 @@ public with sharing class ComponentFactory
 			Component.Apex.CommandButton button = new Component.Apex.CommandButton();
 			button.value = 'Click me';
 			dynamicComponent.childComponents.add( button );
+		}
+		else if( PANEL_BAR == componentType )
+		{
+			Component.Apex.PanelBar bar = new Component.Apex.PanelBar();
+
+			Component.Apex.PanelBarItem item1 = new Component.Apex.PanelBarItem( label = 'Foo' );
+			item1.expanded = 'true';
+			item1.childComponents.add( new Component.Apex.OutputText( value = 'The quick brown fox jumped over the lazy dog.' ) );
+			Component.Apex.PanelBarItem item2 = new Component.Apex.PanelBarItem( label = 'Bar' );
+			item2.childComponents.add( new Component.Apex.OutputText( value = 'Lorem ipsum dolor et sin dog.' ) );
+
+			bar.switchType = 'client';
+			bar.childComponents.add( item1 );
+			bar.childComponents.add( item2 );
+
+			dynamicComponent.childComponents.add( bar );
 		}
 		else if( TOOLBAR == componentType )
 		{
