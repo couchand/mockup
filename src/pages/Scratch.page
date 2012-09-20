@@ -53,9 +53,11 @@ $j(function(){
 			});
 
 			return $j('<div>').addClass('type').text( types );
-		}).draggable();
+		});
 
-//	$j('.page').droppable({ accept: '.palette .dynamicComponent' });
+	$j('.palette span').addClass('connectedSort');
+	$j('.page span').addClass('connectedSort');
+	$j('.connectedSort').sortable({ connectWith: '.connectedSort' });
 
 });
 
@@ -64,10 +66,10 @@ $j(function(){
 	<apex:actionFunction name="afAddComponent" action="{!addComponent}" rerender="form">
 		<apex:param assignTo="{!selectedComponentType}" value="" name="type" />
 	</apex:actionFunction>
-	<div style="width:20%; display:inline-block;" class="palette">
+	<div style="width:20%; float:left;" class="palette">
 		<apex:dynamicComponent componentValue="{!exampleComponents}" />
 	</div>
-	<div style="max-width:60%; display:inline-block;" class="page">
+	<div style="max-width:60%; min-height:300px; float:left;" class="page">
 		<apex:dynamicComponent id="pageContents" componentValue="{!pageContents}" />
 	</div>
 	</apex:form>
